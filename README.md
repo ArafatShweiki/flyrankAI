@@ -1,6 +1,6 @@
-# AI Frontend Capstone
+# FlyRank AI
 
-An AI-powered web application built using modern frontend technologies. The goal of this project is to create a responsive, user-friendly interface while integrating AI capabilities to enhance the user experience.
+FlyRank AI is a flight discovery and ranking assistant that uses AI to help users find and compare flights based on their preferences. Built as a frontend capstone project with a responsive, user-friendly interface.
 
 ## Features
 
