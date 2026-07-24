@@ -1,0 +1,13 @@
+# AI Workflow Comparison
+
+For this exercise, I built the same general feature twice: a profile settings form. Both implementations started independently from the `main` branch. Round one was saved in `round-one`, while the detailed implementation was saved in `round-two`.
+
+For round one, I used Cursor with the vague prompt: “Create a profile settings form.” I accepted the generated result without giving additional requirements. Cursor created a working React and TypeScript form with profile details, travel preferences, notifications, validation, and responsive styling. However, it changed 17 files and selected the fields, structure, and sample data without asking me. The project built successfully, but no automated tests were created. This meant that validation and accessibility had to be reviewed manually.
+
+For round two, I used a detailed prompt with references to `README.md`, `CLAUDE.md`, and `.gitignore`. The prompt specified the fields, validation rules, accessibility requirements, example edge cases, testing requirements, and verification commands. I also used a plan-before-code workflow. Cursor reached its free usage limit during planning, so I continued the implementation with GitHub Copilot in VS Code. This means the comparison is not perfectly controlled because two tools were involved, but both rounds still demonstrate the difference between vague and specification-driven prompting.
+
+The direct Git comparison reported 22 changed files, 3,584 insertions, and 1,752 deletions. More importantly, round two added `src/App.test.tsx`, `src/test/setup.ts`, and `vitest.config.ts`. Its tests covered required names, invalid email addresses, airport validation, lowercase airport normalization, conditional SMS validation, reset behavior, successful submission, accessibility attributes, and theme behavior. Round two improved accessibility by identifying invalid fields, connecting each error message to the correct input, grouping related controls with semantic HTML, and announcing successful saves to screen-reader users.
+
+Verification caught several AI mistakes. The original tests all failed with `React is not defined` because the JSX test configuration was incorrect. After that was fixed, I manually discovered that the theme dropdown changed its stored value but did not change the interface. The theme implementation and tests were then corrected. The final tests, lint command, and production build passed.
+
+Round one was faster to generate, but it required more uncertainty during review. Round two took longer to specify and debug, but its explicit requirements and automated verification made correctness easier to demonstrate.
